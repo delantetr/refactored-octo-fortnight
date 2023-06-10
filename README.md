@@ -6,7 +6,8 @@ This code generates a randomized password based on criteria set by the user. The
 
 ## Usage
 
-![The following image shows the result of the written code.] 
+![The following image shows the result of the written code.] ![ezgif com-video-to-gif](https://github.com/delantetr/refactored-octo-fortnight/assets/134233007/579d5c83-d1fe-402c-9680-ad84b5968f1c)
+
 
 ## License
 
