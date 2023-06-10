@@ -4,7 +4,6 @@ var lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
 var upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", '"', ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"]
-var options = []
 var result = []
 var characters = "";
 
@@ -26,25 +25,21 @@ function generatePassword() {
   } else {
     var lowerCase = confirm("Would you like to include lower case characters?")
       if(lowerCase) {
-          options.push(lowerLetters)
           var lowerLetter = Math.floor(Math.random() * lowerLetters.length);
           result.push(lowerLetters[lowerLetter])
         }
     var upperCase = confirm("Would you like to include upperCase characters?")
       if(upperCase) {
-        options.push(...upperLetters)
         var upperLetter = Math.floor(Math.random() * upperLetters.length);
         result.push(upperLetters[upperLetter])
         }
       var numeric = confirm("Would you like to include numeric characters?")
         if(numeric) {
-        options.push(numbers)
         var numeral = Math.floor(Math.random() * numbers.length);
         result.push(numbers[numeral])
         }
       var specialConfirm = confirm("Would you like to use special characters? (i.e. $,%,&)")
         if(specialConfirm) {
-        options.push(specialChar)
         var special = Math.floor(Math.random() * specialChar.length);
         result.push(specialChar[special])
         }
