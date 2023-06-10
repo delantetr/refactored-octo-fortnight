@@ -6,72 +6,66 @@ var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", '"', ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"]
 var options = []
 var result = []
+var characters = "";
+
+
+
+
 
 function generatePassword() {
   console.log( "Click Confirmed");
 
   // 1. Prompt the user for the password criteria
   var userInput = parseInt(prompt("How many characters will your password be?", "Must be between 8 and 128 characters"));
-//    a. password length 8-128 characters
+  
+  // 2. Validate the input
   if(userInput < 8 || userInput > 128) {
     alert("Please select a number between 8 and 128.");
-  //    b. include lowercase, uppercase, numeric, special
+  
+    // 3. Include lowercase, uppercase, numeric, special
   } else {
-      var lowerCase = confirm("Would you like to include lower case characters?")
-        if(lowerCase) {
+    var lowerCase = confirm("Would you like to include lower case characters?")
+      if(lowerCase) {
           options.push(lowerLetters)
+          var lowerLetter = Math.floor(Math.random() * lowerLetters.length);
+          result.push(lowerLetters[lowerLetter])
         }
-      var upperCase = confirm("Would you like to include upperCase characters?")
-        if(upperCase) {
+    var upperCase = confirm("Would you like to include upperCase characters?")
+      if(upperCase) {
         options.push(...upperLetters)
+        var upperLetter = Math.floor(Math.random() * upperLetters.length);
+        result.push(upperLetters[upperLetter])
         }
-      // var numeric = confirm("Would you like to include numeric characters?")
-      //   if(numeric) {
-      //   options.push(numbers)
-      //   }
-      // var specialConfirm = confirm("Would you like to use special characters? (i.e. $,%,&)")
-      //   if(specialConfirm) {
-      //   options.push(specialChar)
-      //   }
+      var numeric = confirm("Would you like to include numeric characters?")
+        if(numeric) {
+        options.push(numbers)
+        var numeral = Math.floor(Math.random() * numbers.length);
+        result.push(numbers[numeral])
+        }
+      var specialConfirm = confirm("Would you like to use special characters? (i.e. $,%,&)")
+        if(specialConfirm) {
+        options.push(specialChar)
+        var special = Math.floor(Math.random() * specialChar.length);
+        result.push(specialChar[special])
+        }
     }
         
-
-  // 2. Validate the input
-  // console.log(options)
-
-  // 3. Generate password
   
+  
+  
+   
 
-
+  // 4. Generate password
   for(var i = 0; i < userInput; i++ ) {
-    // console.log(i)
-    var lowerLetter = Math.floor(Math.random() * lowerLetters.length);
-    console.log(lowerLetter[i])
-    // result.push(lowerLetters[lowerLetter])
-  // }
-  // for(var i = 0; i < userInput; i++) {
-    // var upperLetter = Math.floor(Math.random() * upperLetters.length);
-    // result.push(upperLetters[upperLetter])
-  }
-    // var numeral = Math.floor(Math.random() * numbers.length);
-    // result.push(numbers[numeral])
-    // var special = Math.floor(Math.random() * specialChar.length);
-    // result.push(specialChar[special]) 
+    Math.floor(Math.random() * result.length)
+    }
   
-
-
-  // console.log(result)
-  
-  // 4. Display password on page
-  // for(var i = 0; i < userInput; i++) {
-  //   options = Math.floor(Math.random() * userInput.length)
-  // }
-
+  // 5. Display password on page
   return result;
 }
 
 
-// Write password to the #password input
+// 6. Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -85,5 +79,5 @@ function writePassword() {
 
 
 
-// Add event listener to generate button
+// 7. Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
